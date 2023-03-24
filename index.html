@@ -1,15 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <title>JY_todoList</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+  <link rel="stylesheet" href="./style.css">
+
+
 </head>
 <body>
-    <h1>JS學習記錄</h1>
-    <ul>
-        <li><a href="todoList.html">todoList</a></li>
+<!-- partial:index.partial.html -->
+<div class="container">
+  <h1>TODO LIST</h1>
+  <div class="card input">
+    <input type="text" class="txt" placeholder="請輸入待辦事項"/>
+    <a href="#" class="btn_add">+</a>
+  </div>
+  <div class="card card_list">
+    <ul class="tab">
+      <li data-tab="all" class="active">全部</li>
+      <li data-tab="notYet">待完成</li>
+      <li data-tab="yet">已完成</li>
     </ul>
+    <div class="cart_content">
+      <ul class="list">
+       
+      </ul>
+      <div class="list_footer">
+        <p><span class="notYetNum">0</span>個待完成項目</p>
+        <a href="#" class="clean">清除已完成項目</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- partial -->
+<script src="all.js"></script>
 </body>
 </html>
