@@ -3,6 +3,11 @@ const btnAdd = document.querySelector(".btn_add");
 
 let data=[];
 
+//資料暫存
+function tempSaveData(){
+    localStorage.setItem("todoList",JSON.stringify(data));
+}
+
 //新增
 btnAdd.addEventListener("click",add);
 function add(){
@@ -19,7 +24,10 @@ function add(){
         data.unshift(obj);
         txt.value="";
     }
-   switchList();
+    tab.innerHTML=` <li data-tab="all" class="active">全部</li><li data-tab="notYet">待完成</li><li data-tab="yet">已完成</li>`;
+    tabName= "all";
+    switchList();
+    tempSaveData();
 }
 
 //渲染
@@ -59,6 +67,7 @@ function updateList(e){
         }
     }
     switchList();
+    tempSaveData();
 }
 
 //依照當下按到的tab，去呈現符合tab狀態的list
@@ -82,7 +91,6 @@ function switchList(){
         }
     })
     notYetNum.textContent=i;
-
 }
 
 //清除完成項目
@@ -94,15 +102,6 @@ listFooter.addEventListener("click",function(e){
             return item.checked==''
         })
         switchList();
+        tempSaveData(); 
     }
 })
-
-
-
-
-
-
-
-
-
- 
